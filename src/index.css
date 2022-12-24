@@ -1,17 +1,30 @@
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-        "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.red {
-    color: red;
+@layer base {
+    *html {
+        box-sizing: border-box;
+    }
+    :root {
+        --color-light-bg-primary: theme(colors.white);
+        --color-light-bg-secondary: #f0f0f0;
+        --color-light-main-primary: #93278f;
+        --color-light-main-secondary: #e1c6ff;
+        --color-light-main-tetiary: #460d86;
+        --color-light-separator: #f0f0f0;
+        --color-light-logo: #fefefe;
+        --color-light-text-primary: #333333;
+        --color-light-text-secondary: #460d86;
+        --color-light-text-muted: theme(colors.gray.500);
+
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-text-size-adjust: 100%;
+        font-family: "Lora", sans-serif;
+    }
 }

@@ -19,7 +19,7 @@ function AddPosition() {
     }
 
     return (
-        <div>
+        <div className="flex flex-col items-center justify-center gap-4">
             <label
                 htmlFor="positionName"
                 className={`${submitted && !positionName && "red"}`}
