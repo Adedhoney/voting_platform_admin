@@ -80,7 +80,6 @@ function App() {
                 </nav>
             </div>
             <main className="col-span-9 h-screen overflow-y-auto text-center">
-                <div className="mt-10"></div>
                 {currentTab === "overview" && <Overview />}
                 {currentTab === "position" && <AddPosition />}
                 {currentTab === "candidate" && <AddCandidate />}

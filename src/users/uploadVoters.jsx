@@ -20,35 +20,44 @@ function UploadUsers() {
             const formData = new FormData()
             formData.append("file", uploadFile.target.files[0])
             const response = await upload(formData)
+            window.location.reload()
 
             console.log(response)
         }
     }
 
     return (
-        <div>
-            <div>
-                <form onSubmit={handleSubmit}>
+        <div className="flex items-center justify-center gap-4 h-full">
+            <div className="flex flex-col items-center justify-center gap-7">
+                <form
+                    onSubmit={handleSubmit}
+                    className="flex flex-col items-center justify-center gap-4"
+                >
                     <input
+                        className="px-2.5 py-1.5 border w-72 rounded-md focus:outline-4"
                         type="file"
                         name="uploadFile"
                         id="uploadFile"
                         onChange={handleChange}
                     />
                     {submitted && !uploadFile && (
-                        <div className="invalid-feedback">
-                            Please select a file
-                        </div>
+                        <div className="text-red-500">Please select a file</div>
                     )}
-                    <br />
-                    <button type="submit">Upload Voters</button>
+                    <button
+                        type="submit"
+                        className="border py-1 px-4 rounded-md hover:bg-gray-300 transform focus:scale-95"
+                    >
+                        Upload Voters
+                    </button>
                 </form>
+                <div>
+                    <p>
+                        Your file must be an excel file and it must follow the
+                        format in the image below.
+                    </p>
+                    <img src={excelModel} alt="Excel Model" />
+                </div>
             </div>
-            <p>
-                Your file must be an excel file and it must follow the format in
-                the image below.
-            </p>
-            <img src={excelModel} alt="Excel Model" />
         </div>
     )
 }

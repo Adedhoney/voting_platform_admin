@@ -39,111 +39,158 @@ function AddCandidate() {
         }
 
         const response = await addCandidate(candidateInfo)
+        window.location.reload()
         console.log(response)
     }
+    const inputStyle = "px-2.5 py-1.5 border w-72 rounded-md focus:outline-4"
+    const innerDivStyle = "flex flex-col items-center justify-center gap-2"
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label
-                    htmlFor="candidateMatric"
-                    className={`${
-                        submitted && !candidateInfo.candidateMatric && "red"
-                    }`}
+        <div className="flex items-center justify-center gap-4 h-full">
+            <form
+                onSubmit={handleSubmit}
+                className="flex flex-col items-center justify-center gap-6"
+            >
+                <div className={innerDivStyle}>
+                    <label
+                        htmlFor="candidateMatric"
+                        className={`${
+                            submitted &&
+                            !candidateInfo.candidateMatric &&
+                            "text-red-500"
+                        }`}
+                    >
+                        Matric Number
+                    </label>
+                    <input
+                        className={inputStyle}
+                        onChange={handleChange}
+                        type="text"
+                        name="candidateMatric"
+                        placeholder="Enter matric number"
+                        value={candidateInfo.candidateMatric}
+                    />
+                </div>
+
+                <div className={innerDivStyle}>
+                    <label
+                        htmlFor="candidateName"
+                        className={`${
+                            submitted &&
+                            !candidateInfo.candidateName &&
+                            "text-red-500"
+                        }`}
+                    >
+                        Name
+                    </label>
+                    <input
+                        className={inputStyle}
+                        onChange={handleChange}
+                        type="text"
+                        name="candidateName"
+                        placeholder="Enter candidate name"
+                        value={candidateInfo.candidateName}
+                    />
+                </div>
+
+                <div className={innerDivStyle}>
+                    <label
+                        htmlFor="candidateDepartment"
+                        className={`${
+                            submitted &&
+                            !candidateInfo.candidateDepartment &&
+                            "text-red-500"
+                        }`}
+                    >
+                        Department
+                    </label>
+                    <input
+                        className={inputStyle}
+                        onChange={handleChange}
+                        type="text"
+                        name="candidateDepartment"
+                        placeholder="Enter department"
+                        value={candidateInfo.candidateDepartment}
+                    />
+                </div>
+
+                <div className={innerDivStyle}>
+                    <label
+                        htmlFor="candidateLevel"
+                        className={`${
+                            submitted &&
+                            !candidateInfo.candidateLevel &&
+                            "text-red-500"
+                        }`}
+                    >
+                        Level
+                    </label>
+                    <select
+                        className={inputStyle}
+                        onChange={handleChange}
+                        type="text"
+                        name="candidateLevel"
+                        value={candidateInfo.candidateLevel}
+                    >
+                        <option></option>
+                        <option value="200">200</option>
+                        <option value="300">300</option>
+                        <option value="400">400</option>
+                        <option value="500">500</option>
+                    </select>
+                </div>
+
+                <div className={innerDivStyle}>
+                    <label
+                        htmlFor="runningPosition"
+                        className={`${
+                            submitted &&
+                            !candidateInfo.runningPosition &&
+                            "text-red-500"
+                        }`}
+                    >
+                        Select Position
+                    </label>
+                    <select
+                        className={inputStyle}
+                        onChange={handleChange}
+                        type="text"
+                        name="runningPosition"
+                        placeholder="Enter matric number"
+                        value={candidateInfo.runningPosition}
+                    >
+                        <option></option>
+                        {selectPositionOptions}
+                    </select>
+                </div>
+
+                <div className={innerDivStyle}>
+                    <label
+                        htmlFor="picture"
+                        className={`${
+                            submitted &&
+                            !candidateInfo.picture &&
+                            "text-red-500"
+                        }`}
+                    >
+                        Display picture
+                    </label>
+                    <input
+                        className={inputStyle}
+                        onChange={handleChange}
+                        type="text"
+                        name="picture"
+                        placeholder="Enter picture link"
+                        value={candidateInfo.picture}
+                    />
+                </div>
+
+                <button
+                    type="submit"
+                    className="border py-1 px-4 rounded-md hover:bg-gray-300 transform focus:scale-95"
                 >
-                    Matric Number
-                </label>
-                <input
-                    onChange={handleChange}
-                    type="text"
-                    name="candidateMatric"
-                    placeholder="Enter matric number"
-                    value={candidateInfo.candidateMatric}
-                />
-                <label
-                    htmlFor="candidateName"
-                    className={`${
-                        submitted && !candidateInfo.candidateName && "red"
-                    }`}
-                >
-                    Name
-                </label>
-                <input
-                    onChange={handleChange}
-                    type="text"
-                    name="candidateName"
-                    placeholder="Enter candidate name"
-                    value={candidateInfo.candidateName}
-                />
-                <label
-                    htmlFor="candidateDepartment"
-                    className={`${
-                        submitted && !candidateInfo.candidateDepartment && "red"
-                    }`}
-                >
-                    Department
-                </label>
-                <input
-                    onChange={handleChange}
-                    type="text"
-                    name="candidateDepartment"
-                    placeholder="Enter department"
-                    value={candidateInfo.candidateDepartment}
-                />
-                <label
-                    htmlFor="candidateLevel"
-                    className={`${
-                        submitted && !candidateInfo.candidateLevel && "red"
-                    }`}
-                >
-                    Level
-                </label>
-                <select
-                    onChange={handleChange}
-                    type="text"
-                    name="candidateLevel"
-                    value={candidateInfo.candidateLevel}
-                >
-                    <option></option>
-                    <option value="200">200</option>
-                    <option value="300">300</option>
-                    <option value="400">400</option>
-                    <option value="500">500</option>
-                </select>
-                <label
-                    htmlFor="runningPosition"
-                    className={`${
-                        submitted && !candidateInfo.runningPosition && "red"
-                    }`}
-                >
-                    Select Position
-                </label>
-                <select
-                    onChange={handleChange}
-                    type="text"
-                    name="runningPosition"
-                    placeholder="Enter matric number"
-                    value={candidateInfo.runningPosition}
-                >
-                    <option></option>
-                    {selectPositionOptions}
-                </select>
-                <label
-                    htmlFor="picture"
-                    className={`${
-                        submitted && !candidateInfo.picture && "red"
-                    }`}
-                >
-                    Display picture
-                </label>
-                <input
-                    onChange={handleChange}
-                    type="text"
-                    name="picture"
-                    placeholder="Enter picture link"
-                    value={candidateInfo.picture}
-                />
-                <button type="submit">Submit</button>
+                    Submit
+                </button>
             </form>
         </div>
     )

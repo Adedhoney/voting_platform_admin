@@ -8,6 +8,7 @@ function CandidateLayout({ candidate }) {
         candidate_name,
         picture,
         candidate_id,
+        votes,
     } = candidate
     const handleCandidateDelete = async () => {
         if (
@@ -37,6 +38,9 @@ function CandidateLayout({ candidate }) {
                 </span>
                 <span className="text-sm text-light-text-muted">
                     {candidate_level + " "}level
+                </span>
+                <span className="text-sm text-light-text-muted">
+                    Votes: {votes}
                 </span>
                 <div className="mt-4">
                     <button

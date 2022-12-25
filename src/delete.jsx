@@ -18,15 +18,22 @@ function Delete() {
     }
     const deleteAll = () => {
         clearDatabase()
+        window.location.reload()
     }
 
     return (
-        <div>
+        <div className="flex flex-col items-center justify-center h-full gap-10 px-8">
             <p>
-                Clicking the button will clear the database and all the election
-                data. Do not click unless you are absolutely sure!
+                Clicking this button will <b>CLEAR</b> the database and{" "}
+                <b>DELETE</b> all the election data. Do not click unless you are
+                absolutely sure!
             </p>
-            <button onClick={deleteWarning1}>DELETE</button>
+            <button
+                className="border py-5 px-10 text-white bg-red-400 rounded-xl hover:bg-red-800 transform focus:scale-95"
+                onClick={deleteWarning1}
+            >
+                DELETE
+            </button>
         </div>
     )
 }
