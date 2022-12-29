@@ -1,5 +1,5 @@
 import React from "react"
-import { clearDatabase } from "./Backend"
+import { clearDatabase } from "./shared/Backend"
 
 function Delete() {
     const deleteWarning1 = () => {

@@ -1,5 +1,5 @@
 import React from "react"
-import { deleteCandidate } from "../Backend"
+import { deleteCandidate } from "../shared/Backend"
 
 function CandidateLayout({ candidate }) {
     const {
@@ -15,7 +15,7 @@ function CandidateLayout({ candidate }) {
             window.confirm(`Are you sure you want to delete ${candidate_name}?`)
         ) {
             const res = await deleteCandidate({ candidateId: candidate_id })
-            if (res.status === 200) {
+            if (res.status === 201) {
                 window.location.reload()
             }
         }

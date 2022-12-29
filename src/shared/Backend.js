@@ -1,8 +1,8 @@
 import axios from "axios"
-import { setVotingPositions } from "./positions/positionsSlice"
-import { setCandidates } from "./candidates/candidatesSlice"
-import { setTotalUsers, setUsersVoted } from "./Redux/appSlice"
-import store from "./Redux/reduxStore"
+import { setVotingPositions } from "../positions/positionsSlice"
+import { setCandidates } from "../candidates/candidatesSlice"
+import { setTotalUsers, setUsersVoted } from "../Redux/appSlice"
+import store from "../Redux/reduxStore"
 
 const URL = "http://localhost:4000/admin/"
 
@@ -38,9 +38,7 @@ export const addCandidate = async (data) => {
 export const deleteCandidate = async (data) => {
     try {
         const res = await axios.post(`${URL}deleteCandidate`, data)
-        return new Promise((resolve, reject) =>
-            resolve({ status: 200, message: "successful" })
-        )
+        return new Promise((resolve, reject) => resolve(res))
     } catch (error) {
         return new Promise((resolve, reject) => resolve(error))
     }
@@ -49,9 +47,7 @@ export const deleteCandidate = async (data) => {
 export const deletePosition = async (data) => {
     try {
         const res = await axios.post(`${URL}deletePosition`, data)
-        return new Promise((resolve, reject) =>
-            resolve({ status: 200, message: "successful" })
-        )
+        return new Promise((resolve, reject) => resolve(res))
     } catch (error) {
         return new Promise((resolve, reject) => resolve(error))
     }
@@ -60,9 +56,7 @@ export const deletePosition = async (data) => {
 export const clearDatabase = async () => {
     try {
         const res = await axios.delete(`${URL}deleteElection`)
-        return new Promise((resolve, reject) =>
-            resolve({ status: 200, message: "successful" })
-        )
+        return new Promise((resolve, reject) => resolve(res))
     } catch (error) {
         return new Promise((resolve, reject) => resolve(error))
     }
@@ -75,9 +69,7 @@ export const getOverview = async () => {
         store.dispatch(setCandidates(res.data.candidates))
         store.dispatch(setTotalUsers(res.data.totalUsers))
         store.dispatch(setUsersVoted(res.data.usersVoted))
-        return new Promise((resolve, reject) =>
-            resolve({ status: 200, message: "successful" })
-        )
+        return new Promise((resolve, reject) => resolve(res))
     } catch (error) {
         return new Promise((resolve, reject) => resolve(error))
     }

@@ -1,6 +1,7 @@
 import React from "react"
 import excelModel from "./excelModel.png"
-import { upload } from "../Backend"
+import { upload } from "../shared/Backend"
+import alert from "../shared/alert"
 import { useDispatch } from "react-redux"
 
 function UploadUsers() {
@@ -20,9 +21,12 @@ function UploadUsers() {
             const formData = new FormData()
             formData.append("file", uploadFile.target.files[0])
             const response = await upload(formData)
-            window.location.reload()
 
-            console.log(response)
+            alert(response)
+            if (response.status === 201) {
+                await setTimeout(() => {}, 1000)
+                window.location.reload()
+            }
         }
     }
 

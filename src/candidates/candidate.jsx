@@ -1,6 +1,7 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import { addCandidate } from "../Backend"
+import { addCandidate } from "../shared/Backend"
+import alert from "../shared/alert"
 
 function AddCandidate() {
     const [candidateInfo, setCandidateInfo] = React.useState({
@@ -39,7 +40,11 @@ function AddCandidate() {
         }
 
         const response = await addCandidate(candidateInfo)
-        window.location.reload()
+        alert(response)
+        if (response.status === 201) {
+            await setTimeout(() => {}, 1000)
+            window.location.reload()
+        }
         console.log(response)
     }
     const inputStyle = "px-2.5 py-1.5 border w-72 rounded-md focus:outline-4"
@@ -133,10 +138,10 @@ function AddCandidate() {
                         value={candidateInfo.candidateLevel}
                     >
                         <option></option>
+                        <option value="100">100</option>
                         <option value="200">200</option>
                         <option value="300">300</option>
                         <option value="400">400</option>
-                        <option value="500">500</option>
                     </select>
                 </div>
 

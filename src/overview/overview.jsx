@@ -23,8 +23,15 @@ function Overview() {
     return (
         <div className="">
             <div className="mt-10"></div>
-            <p>Total number of voters in database: {totalUsers}</p>
-            <p>Total number of users voted: {usersVoted} </p>
+            <p className={pStyle}>
+                <u>Summary</u>
+            </p>
+            <p className={pStyle}>
+                Total number of voters in database: <b>{totalUsers}</b>
+            </p>
+            <p className={pStyle}>
+                Total number of users voted: <b>{usersVoted}</b>{" "}
+            </p>
             <div className=" divide-y-4">{positionComponents}</div>
         </div>
     )

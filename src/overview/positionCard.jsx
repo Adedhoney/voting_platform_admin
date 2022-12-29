@@ -1,5 +1,5 @@
 import React from "react"
-import { deletePosition } from "../Backend"
+import { deletePosition } from "../shared/Backend"
 import CandidateLayout from "./candidateCard"
 
 function PositionLayout({ position, candidates }) {
@@ -24,7 +24,7 @@ function PositionLayout({ position, candidates }) {
             const res = await deletePosition({
                 positionId: position.position_id,
             })
-            if (res.status === 200) {
+            if (res.status === 201) {
                 window.location.reload()
             }
         }

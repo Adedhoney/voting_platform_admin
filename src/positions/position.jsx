@@ -1,5 +1,6 @@
 import React from "react"
-import { addPosition } from "../Backend"
+import { addPosition } from "../shared/Backend"
+import alert from "../shared/alert"
 
 function AddPosition() {
     const [positionName, setPositionName] = React.useState("")
@@ -15,8 +16,12 @@ function AddPosition() {
             return
         }
         const response = await addPosition(positionName)
-        window.location.reload()
         console.log(response)
+        alert(response)
+        if (response.status === 201) {
+            await setTimeout(() => {}, 1000)
+            window.location.reload()
+        }
     }
 
     return (
