@@ -19,8 +19,9 @@ function AddPosition() {
         console.log(response)
         alert(response)
         if (response.status === 201) {
-            await setTimeout(() => {}, 1000)
-            window.location.reload()
+            setTimeout(() => {
+                window.location.reload()
+            }, 1000)
         }
     }
 

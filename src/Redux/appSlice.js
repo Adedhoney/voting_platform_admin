@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
+    accessToken: "",
     currentTab: "overview",
     totalUsers: 0,
     usersVoted: 0,
@@ -10,6 +11,9 @@ const appSlice = createSlice({
     name: "app",
     initialState,
     reducers: {
+        setAccessToken: (state, action) => {
+            state.accessToken = action.payload
+        },
         setNewTab: (state, action) => {
             state.currentTab = action.payload
         },
@@ -22,5 +26,6 @@ const appSlice = createSlice({
     },
 })
 
-export const { setNewTab, setTotalUsers, setUsersVoted } = appSlice.actions
+export const { setNewTab, setTotalUsers, setUsersVoted, setAccessToken } =
+    appSlice.actions
 export default appSlice.reducer

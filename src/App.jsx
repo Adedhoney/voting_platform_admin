@@ -3,19 +3,62 @@ import { useSelector, useDispatch } from "react-redux"
 import UploadUsers from "./users/uploadVoters"
 import AddPosition from "./positions/position"
 import AddCandidate from "./candidates/candidate"
-import { getOverview } from "./shared/Backend"
-import { setNewTab } from "./Redux/appSlice"
+import { getOverview, getAccess } from "./shared/Backend"
+import { setNewTab, setAccessToken } from "./Redux/appSlice"
 import Overview from "./overview/overview"
 import Delete from "./delete"
 
-function App() {
+function Login() {
+    const [accessCode, setAccessCode] = React.useState("")
+    const handleChange = (e) => {
+        setAccessCode(e.target.value)
+    }
+    const handleSubmit = () => {
+        getAccess(accessCode)
+    }
+    return (
+        <div className="h-full w-full bg-neutral-50 overflow-y-auto grid items-center justify-center">
+            <div className="w-[90vw] xs:w-96 p-4 xs:bg-white xs:border border-gray-200 xs:rounded-lg xs:shadow-md sm:p-6 md:p-8">
+                <div>
+                    <img
+                        className="h-16 w-16 mx-auto"
+                        src="/TESA_logo_white.jpeg"
+                    />
+                </div>
+                <label
+                    htmlFor="accessCode"
+                    className="block mb-2 text-sm font-medium text-light-text-primary"
+                >
+                    Enter Access Code
+                </label>
+                <input
+                    type="text"
+                    name="accessCode"
+                    placeholder="Enter Code"
+                    className="bg-gray-50 border border-light-separator text-light-text-primary text-base rounded-lg focus:ring-light-main-secondary focus:border-light-main-secondary block w-full p-2.5 placeholder:tracking-wider"
+                    onChange={handleChange}
+                    value={accessCode}
+                />
+                <button
+                    onClick={handleSubmit}
+                    className="text-light-text-primary text-base rounded-md py-2.5 px-5 border-2 border-light-separator w-full bg-light-secondary transform focus:scale-95 font-medium text-center "
+                >
+                    Submit
+                </button>
+            </div>
+        </div>
+    )
+}
+function MainPage() {
     const dispatch = useDispatch()
+
+    const accessToken = useSelector((state) => state.app.accessToken)
 
     React.useEffect(() => {
         ;(async () => {
-            const res = await getOverview()
+            const res = getOverview()
         })()
-    }, [])
+    }, [accessToken])
 
     const currentTab = useSelector((state) => state.app.currentTab)
     const handleClick = (e) => {
@@ -88,5 +131,16 @@ function App() {
             </main>
         </div>
     )
+}
+function App() {
+    const dispatch = useDispatch()
+
+    const token = localStorage.getItem("accessToken")
+    if (token) {
+        dispatch(setAccessToken(token))
+    }
+    const hasAccessToken = useSelector((state) => state.app.accessToken)
+
+    return hasAccessToken ? <MainPage /> : <Login />
 }
 export default App

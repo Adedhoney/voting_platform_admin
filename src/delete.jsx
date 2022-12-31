@@ -1,18 +1,29 @@
 import React from "react"
 import { clearDatabase } from "./shared/Backend"
+import Swal from "sweetalert2"
 
 function Delete() {
-    const deleteWarning1 = () => {
-        if (window.confirm("Are you sure you want to clear the database?")) {
+    const deleteWarning1 = async () => {
+        let cont = await Swal.fire({
+            title: "Warning!",
+            text: "Are you sure you want to clear the database",
+            icon: "warning",
+            confirmButtonText: "Continue",
+            showCancelButton: true,
+        })
+        if (cont.isConfirmed) {
             deleteWarning2()
         }
     }
-    const deleteWarning2 = () => {
-        if (
-            window.confirm(
-                "This is your last warning!!! You will clear the database, you idiot!!!"
-            )
-        ) {
+    const deleteWarning2 = async () => {
+        let cont = await Swal.fire({
+            title: "Warning!",
+            text: "This is your last warning!!! You will clear the database, you idiot!!!",
+            icon: "warning",
+            confirmButtonText: "Continue",
+            showCancelButton: true,
+        })
+        if (cont.isConfirmed) {
             deleteAll()
         }
     }
