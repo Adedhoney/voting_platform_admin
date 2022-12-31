@@ -40,7 +40,7 @@ function Delete() {
                 absolutely sure!
             </p>
             <button
-                className="px-10 py-5 text-white transform bg-red-400 border rounded-xl hover:bg-red-800 focus:scale-95"
+                className="px-10 py-5 text-white transform bg-red-500 border rounded-xl hover:bg-red-800 focus:scale-95"
                 onClick={deleteWarning1}
             >
                 DELETE

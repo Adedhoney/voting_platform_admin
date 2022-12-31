@@ -35,7 +35,7 @@ function PositionLayout({ position, candidates }) {
             <div className="relative flex items-center justify-between px-2 md:justify-center ">
                 <h2 className="text-2xl md:my-5">{position.position_name}</h2>
                 <button
-                    className="transform md:-translate-y-1/2 md:absolute right-10 top-1/2"
+                    className="duration-150 transform md:-translate-y-1/2 md:absolute right-10 top-1/2 hover:scale-125"
                     onClick={handlePositionDelete}
                 >
                     <svg
