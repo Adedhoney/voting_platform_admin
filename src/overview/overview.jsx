@@ -21,7 +21,7 @@ function Overview() {
     })
 
     return (
-        <div className="">
+        <div className="w-full">
             <div className="mt-10"></div>
             <p className={pStyle}>
                 <u>Summary</u>
@@ -32,7 +32,7 @@ function Overview() {
             <p className={pStyle}>
                 Total number of users voted: <b>{usersVoted}</b>{" "}
             </p>
-            <div className=" divide-y-4">{positionComponents}</div>
+            <div className="divide-y-4 ">{positionComponents}</div>
         </div>
     )
 }

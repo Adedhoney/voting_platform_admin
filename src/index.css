@@ -27,4 +27,8 @@
         -webkit-text-size-adjust: 100%;
         font-family: "Lora", sans-serif;
     }
+
+    #root {
+        @apply mx-auto border-x;
+    }
 }

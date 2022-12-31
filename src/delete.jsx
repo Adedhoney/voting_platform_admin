@@ -33,14 +33,14 @@ function Delete() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center h-full gap-10 px-8">
+        <div className="flex flex-col items-center justify-center w-full h-full gap-10 px-8">
             <p>
                 Clicking this button will <b>CLEAR</b> the database and{" "}
                 <b>DELETE</b> all the election data. Do not click unless you are
                 absolutely sure!
             </p>
             <button
-                className="border py-5 px-10 text-white bg-red-400 rounded-xl hover:bg-red-800 transform focus:scale-95"
+                className="px-10 py-5 text-white transform bg-red-400 border rounded-xl hover:bg-red-800 focus:scale-95"
                 onClick={deleteWarning1}
             >
                 DELETE

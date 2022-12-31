@@ -32,10 +32,10 @@ function PositionLayout({ position, candidates }) {
 
     return (
         <div className="flex flex-col my-10">
-            <div className="relative">
-                <h2 className="text-2xl my-5">{position.position_name}</h2>
+            <div className="relative flex items-center justify-between px-2 md:justify-center ">
+                <h2 className="text-2xl md:my-5">{position.position_name}</h2>
                 <button
-                    className="absolute right-10 top-1/2 transform -translate-y-1/2"
+                    className="transform md:-translate-y-1/2 md:absolute right-10 top-1/2"
                     onClick={handlePositionDelete}
                 >
                     <svg

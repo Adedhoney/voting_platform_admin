@@ -32,7 +32,7 @@ function UploadUsers() {
     }
 
     return (
-        <div className="flex items-center justify-center gap-4 h-full">
+        <div className="flex items-center justify-center w-full h-full gap-4">
             <div className="flex flex-col items-center justify-center gap-7">
                 <form
                     onSubmit={handleSubmit}
@@ -50,7 +50,7 @@ function UploadUsers() {
                     )}
                     <button
                         type="submit"
-                        className="border py-1 px-4 rounded-md hover:bg-gray-300 transform focus:scale-95"
+                        className="px-4 py-1 transform border rounded-md hover:bg-gray-300 focus:scale-95"
                     >
                         Upload Voters
                     </button>

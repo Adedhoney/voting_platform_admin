@@ -52,7 +52,7 @@ function AddCandidate() {
     const innerDivStyle = "flex flex-col items-center justify-center gap-2"
 
     return (
-        <div className="flex items-center justify-center gap-4 h-full">
+        <div className="flex items-center justify-center w-full h-full gap-4">
             <form
                 onSubmit={handleSubmit}
                 className="flex flex-col items-center justify-center gap-6"
@@ -193,7 +193,7 @@ function AddCandidate() {
 
                 <button
                     type="submit"
-                    className="border py-1 px-4 rounded-md hover:bg-gray-300 transform focus:scale-95"
+                    className="px-4 py-1 transform border rounded-md hover:bg-gray-300 focus:scale-95"
                 >
                     Submit
                 </button>
