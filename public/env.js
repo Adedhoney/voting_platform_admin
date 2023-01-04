@@ -1,3 +1,1 @@
-window.env = {
-  "BACKEND_URL": "whalhfnghgjgjthjt"
-};
+window.env = {};
