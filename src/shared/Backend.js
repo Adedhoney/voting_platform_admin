@@ -3,8 +3,10 @@ import { setVotingPositions } from "../positions/positionsSlice"
 import { setCandidates } from "../candidates/candidatesSlice"
 import { setTotalUsers, setUsersVoted, setAccessToken } from "../Redux/appSlice"
 import store from "../Redux/reduxStore"
+import env from "react-dotenv"
 
-const URL = "http://localhost:4000/admin/"
+const URL = env.BACKEND_URL || "http://localhost:4000/admin/"
+console.log(URL)
 
 export const getAccess = async (accessCode) => {
     try {
