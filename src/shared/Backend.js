@@ -14,7 +14,7 @@ export const getAccess = async (accessCode) => {
         localStorage.setItem("accessToken", res.data.accessToken)
         store.dispatch(setAccessToken(res.data.accessToken))
     } catch (error) {
-        if (error.response.status === 410) {
+        if (error.response.status == 410 || 411) {
             localStorage.removeItem("accessToken")
             window.location.reload()
         }
@@ -120,6 +120,14 @@ export const getOverview = async () => {
         store.dispatch(setUsersVoted(res.data.usersVoted))
         return new Promise((resolve, reject) => resolve(res))
     } catch (error) {
+        {
+            if (error.response.status == 410 || 411) {
+                localStorage.removeItem("accessToken")
+                window.location.reload()
+            }
+
+            return new Promise((resolve, reject) => resolve(error.response))
+        }
         return new Promise((resolve, reject) => resolve(error.response))
     }
 }
