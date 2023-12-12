@@ -5,7 +5,7 @@ import PositionLayout from "./positionCard";
 function Overview() {
   let positions = useSelector((state) => state.position.positions);
   let candidates = useSelector((state) => state.candidate.candidates);
-  let totalUsers = useSelector((state) => state.app.totalUsers);
+  // let totalUsers = useSelector((state) => state.app.totalUsers);
   let usersVoted = useSelector((state) => state.app.usersVoted);
 
   const pStyle = "text-lg";
