@@ -8,7 +8,7 @@ import {
 } from "../Redux/appSlice";
 import store from "../Redux/reduxStore";
 
-const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:4000/admin/";
+const URL = process.env.REACT_APP_BACKEND_URL;
 
 export const getAccess = async (accessCode) => {
   try {
