@@ -5,11 +5,10 @@ import PositionLayout from "./positionCard";
 function Overview() {
   let positions = useSelector((state) => state.position.positions);
   let candidates = useSelector((state) => state.candidate.candidates);
-  // let totalUsers = useSelector((state) => state.app.totalUsers);
+  let totalUsers = useSelector((state) => state.app.totalUsers);
   let usersVoted = useSelector((state) => state.app.usersVoted);
 
   const pStyle = "text-lg";
-
   let positionComponents = positions.map((position) => {
     return (
       <PositionLayout
@@ -26,9 +25,9 @@ function Overview() {
       <p className={pStyle}>
         <u>Summary</u>
       </p>
-      {/* <p className={pStyle}>
+      <p className={pStyle}>
         Total number of registered voters: <b>{totalUsers}</b>
-      </p> */}
+      </p>
       <p className={pStyle}>
         Total number of votes: <b>{usersVoted}</b>{" "}
       </p>

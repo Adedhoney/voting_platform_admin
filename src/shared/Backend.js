@@ -124,6 +124,7 @@ export const getOverview = async () => {
     store.dispatch(setUsersVoted(res.data.usersVoted));
     return new Promise((resolve, reject) => resolve(res));
   } catch (error) {
+    console.log(error);
     if (error.response.status === 410 || 411) {
       localStorage.removeItem("accessToken");
       window.location.reload();

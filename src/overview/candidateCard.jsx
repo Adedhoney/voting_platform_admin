@@ -40,14 +40,14 @@ function CandidateLayout({ candidate }) {
         <span className="text-light-text-muted">
           Votes: <span className="font-semibold">{votes}</span>
         </span>
-        {/* <div className='mt-4'>
-					<button
-						className={`inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-500 border border-gray-300 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-gray-200 tracking-widest`}
-						onClick={handleCandidateDelete}
-					>
-						DELETE
-					</button>
-				</div> */}
+        <div className="mt-4">
+          <button
+            className={`inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-500 border border-gray-300 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-gray-200 tracking-widest`}
+            onClick={handleCandidateDelete}
+          >
+            DELETE
+          </button>
+        </div>
       </div>
     </div>
   );
